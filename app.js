@@ -3,7 +3,15 @@ const searchInput = document.querySelector(".search-box input");
 const searchResult = document.querySelector(".search-result");
 const singleLyrics = document.querySelector(".single-lyrics");
 
+
+//Getting input by button click or pressing enter key
+
 searchBtn.addEventListener("click", getSearchResult);
+searchInput.addEventListener("keypress", (e) => {
+	if(e.keyCode === 13) {
+		getSearchResult()
+	}
+});
 
 
 // Getting search results by API
@@ -42,7 +50,7 @@ function getSearchResult() {
                                 <button class="btn btn-success" onclick="getLyrics('${item.artist.name}', '${item.title}', '${item.title}', '${item.artist.name}')">Get Lyrics </button>
                             </div>
                         </div>
-                        <!-- Single result -->
+                        <!-- ./ single result -->
                         `;
 					});
 				}
